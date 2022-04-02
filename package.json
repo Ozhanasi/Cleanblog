@@ -1,0 +1,25 @@
+{
+  "name": "cleanblog",
+  "version": "1.0.0",
+  "description": "CLEANBLOG App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ozhanasi/Cleanblog.git"
+  },
+  "keywords": [
+    "Cleanblog"
+  ],
+  "author": "Özhan ASI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ozhanasi/Cleanblog/issues"
+  },
+  "homepage": "https://github.com/Ozhanasi/Cleanblog#readme",
+  "devDependencies": {
+    "prettier": "2.6.1"
+  }
+}
