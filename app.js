@@ -1,18 +1,33 @@
 const express = require('express');
+const mongoose = require('mongoose');
+
 const ejs = require('ejs');
 const path = require('path');
+const Posts = require('./models/Posts');
+
 
 const app = express();
+
+//connect DB
+mongoose.connect('mongodb://localhost/cleanblog-test-db', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
 
 //TEMPLATE ENGİNE
 app.set('view engine', 'ejs');
 
 //MIDDLEWARES
 app.use(express.static('public'));
+app.use(express.urlencoded({extended:true}))
+app.use(express.json())
 
 //ROUTES
-app.get('/', (req, res) => {
-  res.render('index');
+app.get('/', async (req, res) => {
+  const posts = await Posts.find({});
+  res.render('index', {
+    posts
+  });
 });
 app.get('/about', (req, res) => {
   res.render('about');
@@ -22,6 +37,10 @@ app.get('/add_post', (req, res) => {
 });
 app.get('/post', (req, res) => {
     res.render('post');
+});
+app.post('/posts', async(req, res) => {
+  await Posts.create(req.body)
+  res.redirect('/')
 });
 
 const port = 3000;
