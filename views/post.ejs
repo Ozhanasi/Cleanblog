@@ -33,6 +33,10 @@
 
         </div>
       </div>
+      <div style="text-align:center">
+        <a href="/posts/edit/<%= post._id %>" class="btn btn-primary p-4 ml-10 tm-btn-animate tm-btn-download tm-icon-download"><span>Update Details</span></a>
+        <a href="/posts/<%= post._id %>?_method=DELETE" class="btn btn-danger p-4 ml-10 tm-btn-animate tm-btn-download tm-icon-download" onclick="confirm('ARE YOU SURE?')"><span>Delete Post</span></a>
+      </div>
     </div>
   </article>
 
